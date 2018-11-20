@@ -33,7 +33,7 @@ function runPythonHandler(funOptions, options) {
             } else {
                 // Search for the start of the JSON result
                 // https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format
-                const match = /{\n\s+"isBase64Encoded"|{\n\s+"statusCode"|{\n\s+"headers"|{\n\s+"body"/.exec(str);
+                const match = /{\r?\n\s+"isBase64Encoded"|{\r?\n\s+"statusCode"|{\r?\n\s+"headers"|{\r?\n\s+"body"/.exec(str);
                 if (match && match.index > -1) {
                     // The JSON result was in this chunk so slice it out
                     hasDetectedJson = true;
